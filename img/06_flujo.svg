@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="600" viewBox="0 0 1080 600" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+    <style>
+      .h{font-size:21px;font-weight:700;fill:#2e7d32}
+      .s{font-size:13px;fill:#48506a}
+      .t{font-size:15px;font-weight:700;fill:#14532d}
+      .n{font-size:12px;fill:#1b2440}
+      .m{font-size:11.5px;font-style:italic;fill:#14532d}
+      .q{font-size:12.5px;fill:#14532d}
+    </style>
+  </defs>
+  <rect width="1080" height="600" fill="#ffffff"/>
+  <text x="36" y="38" class="h">Cuaderno 06 &#183; DAGs y d-separaci&#243;n &#8212; flujo</text>
+  <text x="36" y="60" class="s">el lenguaje gr&#225;fico para decidir QU&#201; variables ajustar (y cu&#225;les no)</text>
+
+  <rect x="36" y="78" width="1008" height="80" rx="10" fill="#eaf4ea" stroke="#2e7d32" stroke-width="1.6"/>
+  <text x="52" y="102" class="t">Secci&#243;n 1 &#183; Grafos causales (DAG)</text>
+  <text x="52" y="124" class="n">nodos = variables &#183; flechas = causas directas &#183; ac&#237;clico</text>
+  <text x="52" y="144" class="m">tres estructuras: cadena X&#8594;Z&#8594;Y &#183; bifurcaci&#243;n X&#8592;Z&#8594;Y &#183; colisionador X&#8594;Z&#8592;Y</text>
+
+  <line x1="540" y1="158" x2="540" y2="178" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="36" y="180" width="1008" height="80" rx="10" fill="#dbe7ff" stroke="#1f4e9c" stroke-width="1.6"/>
+  <text x="52" y="204" class="t" fill="#10245c">Secci&#243;n 2 &#183; d-separaci&#243;n</text>
+  <text x="52" y="226" class="m">camino bloqueado &#8594; X &#8869;&#8503; Y | Z  &#8658;  X &#8869; Y | Z  (Markov global)</text>
+  <text x="52" y="246" class="n">verificaci&#243;n num&#233;rica: la correlaci&#243;n parcial se anula exactamente cuando hay d-separaci&#243;n</text>
+
+  <line x1="540" y1="260" x2="540" y2="280" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="36" y="282" width="498" height="120" rx="10" fill="#eaf4ea" stroke="#2e7d32" stroke-width="1.6"/>
+  <text x="52" y="306" class="t">Secci&#243;n 3 &#183; Tres roles</text>
+  <text x="52" y="328" class="n">confusor (bifurcaci&#243;n): S&#205; ajustar</text>
+  <text x="52" y="348" class="n">mediador (cadena): NO ajustar (sobre-control)</text>
+  <text x="52" y="368" class="n">colisionador: NO ajustar (sesgo inducido)</text>
+  <text x="52" y="392" class="m">condicionar abre o cierra caminos</text>
+
+  <rect x="546" y="282" width="498" height="120" rx="10" fill="#fff1cc" stroke="#b8860b" stroke-width="1.6"/>
+  <text x="562" y="306" class="t" fill="#8a6508">Secci&#243;n 4 &#183; Criterio de puerta trasera</text>
+  <text x="562" y="328" class="n">Z bloquea todo camino backdoor T&#8592;...&#8594;Y</text>
+  <text x="562" y="348" class="n">y no contiene descendientes de T</text>
+  <text x="562" y="368" class="m">&#8658; P(Y|do(T)) = &#8721;&#7763; P(Y|T,z) P(z)</text>
+  <text x="562" y="392" class="n">demo: solo el conjunto correcto recupera el ATE</text>
+
+  <line x1="540" y1="402" x2="540" y2="422" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="36" y="424" width="1008" height="80" rx="10" fill="#f3eaf1" stroke="#7a3b6b" stroke-width="1.6"/>
+  <text x="52" y="448" class="t" fill="#7a3b6b">Secci&#243;n 5 &#183; Un DAG para el programa de empleo (NSW)</text>
+  <text x="52" y="470" class="n">covariables previas (edad, educaci&#243;n, ingreso previo) confunden tratamiento e ingresos</text>
+  <text x="52" y="490" class="m">conjunto de ajuste v&#225;lido = covariables PREVIAS al tratamiento (no posteriores)</text>
+
+  <line x1="540" y1="504" x2="540" y2="524" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="36" y="526" width="1008" height="40" rx="8" fill="#eef1f7" stroke="#0b2a5b" stroke-width="1.5"/>
+  <text x="52" y="551" class="q">Continuaci&#243;n &#8594; Cuaderno 07: DoWhy &#8212; del grafo a la estimaci&#243;n (identificar, estimar, refutar).</text>
+</svg>

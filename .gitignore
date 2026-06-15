@@ -1,0 +1,18 @@
+# Datos pesados / derivados (los crudos se descargan con src/data.py)
+data/processed/*
+!data/processed/.gitkeep
+
+# Entorno
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Salidas de cuadernos voluminosas
+reports/figures/*.png
+!reports/figures/.gitkeep
+
+# Sistema
+.DS_Store
+Thumbs.db

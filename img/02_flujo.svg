@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="588" viewBox="0 0 1080 588" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+    <style>
+      .h{font-size:22px;font-weight:700;fill:#1f4e9c}
+      .s{font-size:13px;fill:#48506a}
+      .t{font-size:15px;font-weight:700;fill:#10245c}
+      .n{font-size:12px;fill:#1b2440}
+      .m{font-size:12px;font-style:italic;fill:#10245c}
+      .q{font-size:12.5px;fill:#10245c}
+    </style>
+  </defs>
+  <rect width="1080" height="588" fill="#ffffff"/>
+  <text x="36" y="40" class="h">Cuaderno 02 &#183; Explicaciones locales (SHAP y LIME) &#8212; flujo</text>
+  <text x="36" y="62" class="s">atribuci&#243;n aditiva de caracter&#237;sticas: f(x) = &#966;&#8320; + &#931; &#966;&#7522;</text>
+
+  <rect x="36" y="80" width="1008" height="42" rx="8" fill="#eef1f7" stroke="#0b2a5b" stroke-width="1.5"/>
+  <text x="52" y="106" class="n">Secci&#243;n 0 &#183; Modelo de referencia: XGBoost sobre German Credit (AUC 0.769) &#8212; la caja negra a explicar</text>
+
+  <line x1="540" y1="122" x2="540" y2="142" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- LIME -->
+  <rect x="36" y="144" width="496" height="150" rx="10" fill="#dbe7ff" stroke="#1f4e9c" stroke-width="1.6"/>
+  <text x="52" y="168" class="t">Secci&#243;n 2 &#183; LIME</text>
+  <text x="52" y="190" class="m">&#958;(x) = argmin&#8407; L(f, g, &#960;&#8339;) + &#937;(g)</text>
+  <text x="52" y="210" class="n">sustituto lineal local por m&#237;nimos cuadrados</text>
+  <text x="52" y="228" class="n">ponderados por proximidad &#960;&#8339;</text>
+  <text x="52" y="252" class="n">Fig. 1 contribuciones &#183; Fig. 2 variabilidad</text>
+  <text x="52" y="274" class="m" fill="#b8860b">limitaci&#243;n: inestable (semilla, &#963;)</text>
+
+  <!-- SHAP -->
+  <rect x="548" y="144" width="496" height="150" rx="10" fill="#eaf4ea" stroke="#2e7d32" stroke-width="1.6"/>
+  <text x="564" y="168" class="t" fill="#226022">Secci&#243;n 3 &#183; SHAP (valores de Shapley)</text>
+  <text x="564" y="190" class="m">&#966;&#7522; = &#931; |S|!(M-|S|-1)!/M! &#183; [v(S&#8746;i) &#8722; v(S)]</text>
+  <text x="564" y="210" class="n">reparto axiom&#225;tico &#250;nico (eficiencia, simetr&#237;a,</text>
+  <text x="564" y="228" class="n">nulidad, linealidad) &#183; KernelSHAP / TreeSHAP</text>
+  <text x="564" y="252" class="n">Fig. 3 waterfall &#183; 4 beeswarm &#183; 5 dependencia</text>
+  <text x="564" y="274" class="m" fill="#226022">aditividad exacta: |&#966;&#8320;+&#931;&#966;&#7522; &#8722; f(x)| = 3&#215;10&#8315;&#8311;</text>
+
+  <line x1="284" y1="294" x2="284" y2="324" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="796" y1="294" x2="796" y2="324" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- comparacion -->
+  <rect x="36" y="326" width="1008" height="74" rx="10" fill="#fff1cc" stroke="#b8860b" stroke-width="1.6"/>
+  <text x="52" y="350" class="t" fill="#8a6508">Secci&#243;n 4 &#183; Comparaci&#243;n SHAP&#8211;LIME</text>
+  <text x="52" y="372" class="n">garant&#237;as formales y estabilidad (SHAP) frente a velocidad y simplicidad (LIME)</text>
+  <text x="52" y="390" class="n">Fig. 6: coincidencia en el signo, divergencia en magnitud por las distintas escalas</text>
+
+  <line x1="540" y1="400" x2="540" y2="420" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- limite causal -->
+  <rect x="36" y="422" width="1008" height="86" rx="10" fill="#f3eaf1" stroke="#7a3b6b" stroke-width="1.6"/>
+  <text x="52" y="446" class="t" fill="#7a3b6b">Secci&#243;n 5 &#183; Alcance y l&#237;mite causal</text>
+  <text x="52" y="468" class="n">ambos m&#233;todos operan en el nivel asociacional: atribuci&#243;n &#8800; efecto causal</text>
+  <text x="52" y="488" class="n">v(S) = E[f(X) | X&#8347; = x&#8347;] arrastra correlaciones &#8594; correcci&#243;n intervencional E[f | do(X&#8347;)] en el cuaderno 04</text>
+
+  <line x1="540" y1="508" x2="540" y2="528" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="36" y="530" width="1008" height="40" rx="8" fill="#eef1f7" stroke="#0b2a5b" stroke-width="1.5"/>
+  <text x="52" y="555" class="q">Continuaci&#243;n &#8594; Cuaderno 03: explicaciones globales (PDP/ALE) y contrafactuales (DiCE).</text>
+</svg>

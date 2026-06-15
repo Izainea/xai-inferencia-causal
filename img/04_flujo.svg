@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="600" viewBox="0 0 1080 600" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+    <style>
+      .h{font-size:21px;font-weight:700;fill:#1f4e9c}
+      .s{font-size:13px;fill:#48506a}
+      .t{font-size:15px;font-weight:700;fill:#10245c}
+      .n{font-size:12px;fill:#1b2440}
+      .m{font-size:11.5px;font-style:italic;fill:#10245c}
+      .q{font-size:12.5px;fill:#10245c}
+    </style>
+  </defs>
+  <rect width="1080" height="600" fill="#ffffff"/>
+  <text x="36" y="38" class="h">Cuaderno 04 &#183; Del SHAP observacional al SHAP causal &#8212; flujo</text>
+  <text x="36" y="60" class="s">por qu&#233; la atribuci&#243;n fiel al modelo no es atribuci&#243;n causal, y c&#243;mo corregirlo</text>
+
+  <rect x="36" y="78" width="1008" height="40" rx="8" fill="#eef1f7" stroke="#0b2a5b" stroke-width="1.5"/>
+  <text x="52" y="103" class="n">Secci&#243;n 0 &#183; Modelo de referencia (XGBoost) sobre German Credit + un SCM sint&#233;tico de estructura conocida</text>
+  <line x1="540" y1="118" x2="540" y2="138" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="36" y="140" width="1008" height="92" rx="10" fill="#dbe7ff" stroke="#1f4e9c" stroke-width="1.6"/>
+  <text x="52" y="164" class="t">Secci&#243;n 1 &#183; Dos funciones de valor</text>
+  <text x="52" y="188" class="m">observacional:  v(S) = E[ f(X) | X&#8347; = x&#8347; ]      (arrastra correlaciones)</text>
+  <text x="52" y="210" class="m">intervencional: v(S) = E[ f(X) | do(X&#8347; = x&#8347;) ] = E&#8339;&#8331;&#8347;[ f(x&#8347;, X&#8331;&#8347;) ]   (rompe la dependencia)</text>
+
+  <line x1="540" y1="232" x2="540" y2="252" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="36" y="254" width="498" height="150" rx="10" fill="#eaf4ea" stroke="#2e7d32" stroke-width="1.6"/>
+  <text x="52" y="278" class="t" fill="#226022">Secci&#243;n 2 &#183; SCM conocido (X1&#8594;X2, ambos&#8594;y)</text>
+  <text x="52" y="300" class="n">se comparan TRES atribuciones de Shapley:</text>
+  <text x="52" y="320" class="n">&#8226; observacional &#8594; filtra al proxy/mediador</text>
+  <text x="52" y="340" class="n">&#8226; intervencional (marginal) &#8594; pierde la mediaci&#243;n</text>
+  <text x="52" y="360" class="n">&#8226; causal (respeta el DAG) &#8594; atribuci&#243;n correcta</text>
+  <text x="52" y="384" class="m">verdad conocida: se sabe cu&#225;l es la causa</text>
+
+  <rect x="546" y="254" width="498" height="150" rx="10" fill="#fff1cc" stroke="#b8860b" stroke-width="1.6"/>
+  <text x="562" y="278" class="t" fill="#8a6508">Secci&#243;n 3 &#183; En el modelo real (German Credit)</text>
+  <text x="562" y="300" class="n">SHAP observacional (tree_path_dependent)</text>
+  <text x="562" y="320" class="n">vs SHAP intervencional (interventional)</text>
+  <text x="562" y="340" class="n">cambian las importancias de varias variables</text>
+  <text x="562" y="364" class="m">&#191;cu&#225;l es la correcta? depende del grafo causal</text>
+  <text x="562" y="384" class="m">que la XAI por s&#237; sola no provee</text>
+
+  <line x1="540" y1="404" x2="540" y2="424" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="36" y="426" width="1008" height="82" rx="10" fill="#f3eaf1" stroke="#7a3b6b" stroke-width="1.6"/>
+  <text x="52" y="450" class="t" fill="#7a3b6b">Secci&#243;n 4 &#183; Causal SHAP, do-SHAP y Shapley asim&#233;trico</text>
+  <text x="52" y="472" class="n">Heskes et al. (2020), Janzing et al. (2020), Frye et al. (2020): incorporan un orden/grafo causal</text>
+  <text x="52" y="492" class="n">conclusi&#243;n: para atribuir causalmente se necesita el modelo causal &#8594; entra la inferencia causal</text>
+
+  <line x1="540" y1="508" x2="540" y2="528" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="36" y="530" width="1008" height="40" rx="8" fill="#eef1f7" stroke="#0b2a5b" stroke-width="1.5"/>
+  <text x="52" y="555" class="q">Continuaci&#243;n &#8594; Cuaderno 05: marco de resultados potenciales (Rubin) y el experimento NSW &#8212; inicia la Secci&#243;n 2.</text>
+</svg>

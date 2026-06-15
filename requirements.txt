@@ -1,0 +1,34 @@
+# Entorno recomendado: Python 3.12 (DoWhy/EconML/causal-learn no soportan aún 3.14)
+# Núcleo científico
+numpy>=1.26,<2.1
+pandas>=2.1
+scipy>=1.11
+scikit-learn>=1.3,<1.6
+matplotlib>=3.8
+seaborn>=0.13
+statsmodels>=0.14
+
+# IA Explicativa (XAI)
+shap>=0.45
+lime>=0.2.0.1
+dice-ml>=0.11            # explicaciones contrafactuales / recurso accionable
+
+# Inferencia causal
+dowhy>=0.11
+econml>=0.15            # efectos heterogéneos (CATE), meta-learners, Causal Forest
+causal-learn>=0.1.3.8   # descubrimiento causal (PC, GES, NOTEARS)
+networkx>=3.2           # DAGs y d-separación
+pgmpy>=0.1.25           # modelos gráficos probabilísticos
+
+# Modelos de caja negra para los ejemplos
+xgboost>=2.0
+
+# Entorno de cuadernos
+jupyterlab>=4.0
+ipykernel>=6.29
+notebook>=7.0
+
+# Opcionales (pueden requerir versiones antiguas; instalar aparte si se usan)
+# causalnex>=0.12       # modelado bayesiano causal (S3) — conflictos frecuentes de versión
+# pyro-ppl>=1.9         # modelado causal bayesiano
+# pymc>=5.10            # modelado causal bayesiano

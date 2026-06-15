@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="600" viewBox="0 0 1080 600" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+    <style>
+      .h{font-size:21px;font-weight:700;fill:#2e7d32}
+      .s{font-size:13px;fill:#48506a}
+      .t{font-size:15px;font-weight:700;fill:#14532d}
+      .n{font-size:12px;fill:#1b2440}
+      .m{font-size:11.5px;font-style:italic;fill:#14532d}
+      .q{font-size:12.5px;fill:#14532d}
+    </style>
+  </defs>
+  <rect width="1080" height="600" fill="#ffffff"/>
+  <text x="36" y="38" class="h">Cuaderno 07 &#183; Estimaci&#243;n causal con DoWhy &#8212; flujo</text>
+  <text x="36" y="60" class="s">del grafo al n&#250;mero: cuatro pasos que separan los SUPUESTOS de la ESTAD&#205;STICA</text>
+
+  <!-- cuatro pasos -->
+  <rect x="36" y="84" width="240" height="150" rx="10" fill="#eaf4ea" stroke="#2e7d32" stroke-width="1.7"/>
+  <text x="52" y="108" class="t">1 &#183; Modelar</text>
+  <text x="52" y="130" class="n">datos + DAG causal</text>
+  <text x="52" y="150" class="n">(confusores previos &#8594; T, Y)</text>
+  <text x="52" y="178" class="m">qu&#233; se asume</text>
+
+  <rect x="296" y="84" width="240" height="150" rx="10" fill="#dbe7ff" stroke="#1f4e9c" stroke-width="1.7"/>
+  <text x="312" y="108" class="t" fill="#10245c">2 &#183; Identificar</text>
+  <text x="312" y="130" class="n">grafo &#8594; estimando</text>
+  <text x="312" y="150" class="m">P(Y|do(T)) = &#8721;&#7763; P(Y|T,z)P(z)</text>
+  <text x="312" y="178" class="n">criterio backdoor (nb06)</text>
+
+  <rect x="556" y="84" width="240" height="150" rx="10" fill="#fff1cc" stroke="#b8860b" stroke-width="1.7"/>
+  <text x="572" y="108" class="t" fill="#8a6508">3 &#183; Estimar</text>
+  <text x="572" y="130" class="n">regresi&#243;n lineal</text>
+  <text x="572" y="150" class="n">PS: estratificaci&#243;n / emparejamiento</text>
+  <text x="572" y="170" class="n">ponderaci&#243;n (IPW)</text>
+  <text x="572" y="192" class="m">la parte estad&#237;stica</text>
+
+  <rect x="816" y="84" width="228" height="150" rx="10" fill="#f3eaf1" stroke="#7a3b6b" stroke-width="1.7"/>
+  <text x="832" y="108" class="t" fill="#7a3b6b">4 &#183; Refutar</text>
+  <text x="832" y="130" class="n">placebo &#8594; efecto &#8776; 0</text>
+  <text x="832" y="150" class="n">causa com&#250;n aleatoria</text>
+  <text x="832" y="170" class="n">subconjunto de datos</text>
+  <text x="832" y="192" class="m">robustez (falsaci&#243;n)</text>
+
+  <line x1="276" y1="159" x2="296" y2="159" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="536" y1="159" x2="556" y2="159" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="796" y1="159" x2="816" y2="159" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <line x1="540" y1="234" x2="540" y2="258" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="36" y="260" width="498" height="150" rx="10" fill="#eaf4ea" stroke="#2e7d32" stroke-width="1.6"/>
+  <text x="52" y="284" class="t">NSW experimental (patr&#243;n de oro)</text>
+  <text x="52" y="306" class="n">aleatorizado &#8594; el ajuste no cambia el resultado</text>
+  <text x="52" y="326" class="m" fill="#226022">todos los estimadores &#8776; +$886</text>
+  <text x="52" y="350" class="n">refutaci&#243;n: placebo &#8776; 0; causa com&#250;n y</text>
+  <text x="52" y="370" class="n">subconjunto &#8776; estable &#8594; estimaci&#243;n robusta</text>
+
+  <rect x="546" y="260" width="498" height="150" rx="10" fill="#fdecea" stroke="#c0392b" stroke-width="1.6"/>
+  <text x="562" y="284" class="t" fill="#922b21">NSW observacional (CPS)</text>
+  <text x="562" y="306" class="n">el ajuste por confusores acerca la estimaci&#243;n,</text>
+  <text x="562" y="326" class="n">pero no la iguala (confusi&#243;n no medida, solape pobre)</text>
+  <text x="562" y="350" class="m" fill="#922b21">el experimento juzga a los m&#233;todos</text>
+  <text x="562" y="372" class="n">identificaci&#243;n &#8800; verdad: depende de los supuestos</text>
+
+  <line x1="540" y1="410" x2="540" y2="434" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="36" y="436" width="1008" height="40" rx="8" fill="#eef1f7" stroke="#0b2a5b" stroke-width="1.5"/>
+  <text x="52" y="461" class="q">Continuaci&#243;n &#8594; Cuaderno 08: por dentro de los estimadores &#8212; PSM, IPW, variables instrumentales y diferencias en diferencias.</text>
+</svg>

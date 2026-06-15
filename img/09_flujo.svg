@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="580" viewBox="0 0 1080 580" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+    <style>
+      .h{font-size:21px;font-weight:700;fill:#6a1b9a}
+      .s{font-size:13px;fill:#48506a}
+      .t{font-size:15px;font-weight:700;fill:#4a148c}
+      .n{font-size:12px;fill:#1b2440}
+      .m{font-size:11.5px;font-style:italic;fill:#4a148c}
+      .q{font-size:12.5px;fill:#4a148c}
+    </style>
+  </defs>
+  <rect width="1080" height="580" fill="#ffffff"/>
+  <text x="36" y="38" class="h">Cuaderno 09 &#183; Efectos heterog&#233;neos (CATE) explicados con SHAP &#8212; flujo</text>
+  <text x="36" y="60" class="s">el reencuentro de las dos secciones: inferencia causal + IA explicativa</text>
+
+  <rect x="36" y="80" width="1008" height="64" rx="10" fill="#f3e5f5" stroke="#6a1b9a" stroke-width="1.6"/>
+  <text x="52" y="104" class="t">Del efecto PROMEDIO al efecto INDIVIDUALIZADO</text>
+  <text x="52" y="126" class="m">ATE = E[Y(1)-Y(0)]   &#8594;   CATE  &#964;(x) = E[Y(1)-Y(0) | X=x]   (&#191;a qui&#233;n beneficia m&#225;s?)</text>
+
+  <line x1="540" y1="144" x2="540" y2="164" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="36" y="166" width="498" height="120" rx="10" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.6"/>
+  <text x="52" y="190" class="t" fill="#4527a0">Secci&#243;n 2 &#183; Meta-learners</text>
+  <text x="52" y="212" class="n">S-learner: un modelo f(X,T)</text>
+  <text x="52" y="232" class="n">T-learner: dos modelos f&#8321;, f&#8320;</text>
+  <text x="52" y="252" class="n">X-learner: refina con propensi&#243;n</text>
+  <text x="52" y="274" class="m">recuperan el CATE verdadero</text>
+
+  <rect x="546" y="166" width="498" height="120" rx="10" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.6"/>
+  <text x="562" y="190" class="t" fill="#4527a0">Secci&#243;n 3 &#183; DML y Causal Forest (EconML)</text>
+  <text x="562" y="212" class="m">ortogonalizaci&#243;n de Neyman (DML)</text>
+  <text x="562" y="232" class="n">residualizar Y y T sobre X</text>
+  <text x="562" y="252" class="n">robusto a errores de las molestias</text>
+  <text x="562" y="274" class="m">bosque causal: CATE no param&#233;trico</text>
+
+  <line x1="540" y1="286" x2="540" y2="306" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="36" y="308" width="1008" height="96" rx="10" fill="#e3f2fd" stroke="#1565c0" stroke-width="1.7"/>
+  <text x="52" y="332" class="t" fill="#0d47a1">Secci&#243;n 4 &#183; Explicar el CATE con SHAP  (XAI sobre un objeto CAUSAL)</text>
+  <text x="52" y="354" class="n">se aplica SHAP a &#964;&#770;(x) &#8594; qu&#233; variables generan la heterogeneidad del efecto</text>
+  <text x="52" y="374" class="n">NO se explica una predicci&#243;n, sino un EFECTO causal estimado</text>
+  <text x="52" y="394" class="m" fill="#0d47a1">cierra el puente abierto en el cuaderno 04: la explicabilidad, ahora del lado causal</text>
+
+  <line x1="540" y1="404" x2="540" y2="424" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="36" y="426" width="1008" height="60" rx="10" fill="#f3e5f5" stroke="#6a1b9a" stroke-width="1.6"/>
+  <text x="52" y="450" class="t">Secci&#243;n 5 &#183; Aplicaci&#243;n: focalizaci&#243;n (policy)</text>
+  <text x="52" y="472" class="n">tratar a quienes tienen mayor CATE &#8594; pol&#237;tica m&#225;s eficiente que &#171;tratar a todos&#187;</text>
+
+  <line x1="540" y1="486" x2="540" y2="506" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="36" y="508" width="1008" height="40" rx="8" fill="#eef1f7" stroke="#0b2a5b" stroke-width="1.5"/>
+  <text x="52" y="533" class="q">Continuaci&#243;n &#8594; Cuaderno 10: causalidad explicable de extremo a extremo + auditor&#237;a &#233;tica (cierre).</text>
+</svg>
