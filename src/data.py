@@ -170,6 +170,100 @@ def load_lalonde_obs(control="cps", raw_dir: Path | str = RAW) -> pd.DataFrame:
     return df
 
 
+# --------------------------------------------------------------------------- #
+# Datos abiertos colombianos (cuaderno 11)
+#   - ICFES Saber 11 (datos.gov.co, Socrata): caso observacional (XAI + equidad).
+#   - Vouchers PACES (Angrist et al. 2002, Harvard Dataverse): experimento
+#     aleatorizado (lotería) como verdad causal de referencia.
+# Ambos se descargan bajo demanda y se cachean en data/raw/colombia/.
+# --------------------------------------------------------------------------- #
+import ssl
+import urllib.parse
+import urllib.request
+
+COL_RAW = ROOT / "data" / "raw" / "colombia"
+
+# Contexto SSL tolerante (algunos portales gubernamentales tienen cadenas de
+# certificado incompletas en Windows); solo se usa para descargar datos públicos.
+_SSL = ssl.create_default_context()
+_SSL.check_hostname = False
+_SSL.verify_mode = ssl.CERT_NONE
+
+
+def _download(url: str, dest: Path, force: bool = False) -> Path:
+    """Descarga ``url`` a ``dest`` (cachea; no re-descarga si ya existe)."""
+    dest = Path(dest)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.exists() and not force:
+        return dest
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=180, context=_SSL) as r, open(dest, "wb") as f:
+        f.write(r.read())
+    return dest
+
+
+# --- ICFES Saber 11 -------------------------------------------------------- #
+SABER11_ID = "kgxf-xxbe"          # "Resultados únicos Saber 11" en datos.gov.co
+SABER11_COLS = [
+    "punt_global", "punt_matematicas", "punt_lectura_critica",
+    "punt_c_naturales", "punt_sociales_ciudadanas", "punt_ingles",
+    "cole_naturaleza", "cole_bilingue", "cole_jornada", "cole_calendario",
+    "cole_caracter", "cole_area_ubicacion", "cole_depto_ubicacion", "cole_genero",
+    "estu_genero", "estu_depto_reside",
+    "fami_estratovivienda", "fami_educacionmadre", "fami_educacionpadre",
+    "fami_tieneinternet", "fami_tienecomputador", "fami_tieneautomovil",
+    "fami_tienelavadora", "fami_cuartoshogar", "fami_personashogar",
+]
+_SABER11_PUNT = [c for c in SABER11_COLS if c.startswith("punt_")]
+
+
+def load_saber11(periodo: str = "20224", n: int = 60000,
+                 force: bool = False) -> pd.DataFrame:
+    """Muestra reproducible de Saber 11 (un periodo) desde datos.gov.co.
+
+    Descarga por la API de Socrata las ``SABER11_COLS`` para un ``periodo``
+    (por defecto ``20224`` = calendario A 2022, escala 0-500 post-reforma 2014),
+    ordenada por ``estu_consecutivo`` y limitada a ``n`` filas (muestra fija,
+    reproducible). Cachea en ``data/raw/colombia/``.
+    """
+    dest = COL_RAW / f"saber11_{periodo}_n{n}.csv"
+    qs = urllib.parse.urlencode({
+        "$select": ",".join(SABER11_COLS + ["estu_consecutivo"]),
+        "$where": f"periodo='{periodo}'",
+        "$order": "estu_consecutivo",
+        "$limit": n,
+    })
+    url = f"https://www.datos.gov.co/resource/{SABER11_ID}.csv?{qs}"
+    _download(url, dest, force=force)
+    df = pd.read_csv(dest)
+    for c in _SABER11_PUNT:
+        if c in df:
+            df[c] = pd.to_numeric(df[c], errors="coerce")
+    df = df.dropna(subset=["punt_global"]).reset_index(drop=True)
+    return df
+
+
+# --- Vouchers PACES (Angrist et al. 2002) ---------------------------------- #
+PACES_FILE_ID = 1232224           # aerdat4.tab en Harvard Dataverse (hdl:1902.1/11298)
+
+
+def load_paces(force: bool = False) -> pd.DataFrame:
+    """Datos de réplica del experimento de vouchers PACES (Angrist et al., 2002).
+
+    Lotería aleatoria de becas para colegio privado en Colombia. Variables clave:
+    ``vouch0`` (ganó la lotería = tratamiento aleatorizado), ``scyfnsh`` (años de
+    escolaridad terminados), ``finish8`` (terminó 8.º grado), ``rept`` (repitió),
+    ``usngsch`` (usó beca = variable endógena), ``prsch_c`` (en colegio privado);
+    covariables ``sex``, ``age``, ``mom_sch``, ``dad_sch``, ``strata1..6``,
+    ``dbogota``, ``d1995``/``d1997``. Cachea en ``data/raw/colombia/``.
+    """
+    dest = COL_RAW / "paces_aerdat4.tab"
+    url = f"https://dataverse.harvard.edu/api/access/datafile/{PACES_FILE_ID}"
+    _download(url, dest, force=force)
+    df = pd.read_csv(dest, sep="\t", na_values=["."])
+    return df
+
+
 if __name__ == "__main__":  # diagnóstico rápido
     g = load_german_credit()
     n = load_nsw()

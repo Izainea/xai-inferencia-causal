@@ -16,3 +16,6 @@ reports/figures/*.png
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Datos colombianos (Saber 11 / PACES) descargados bajo demanda
+data/raw/colombia/
